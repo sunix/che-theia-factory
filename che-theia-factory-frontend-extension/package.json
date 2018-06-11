@@ -1,18 +1,18 @@
 {
-  "name": "che-theia-factory-frontend-extension",
+  "name": "sunix-che-theia-factory-frontend-extension",
   "keywords": [
     "theia-extension"
   ],
-  "version": "0.0.0",
+  "version": "1.0.0",
   "files": [
     "lib",
     "src"
   ],
   "dependencies": {
+    "@eclipse-che/workspace-client": "latest",
     "@theia/core": "latest",
     "@theia/git": "latest",
-    "axios": "0.18.0",
-    "@eclipse-che/workspace-client": "latest"
+    "axios": "0.18.0"
   },
   "devDependencies": {
     "rimraf": "latest",
