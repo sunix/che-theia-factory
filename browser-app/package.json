@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "browser-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
     "@theia/core": "latest",
     "@theia/editor": "latest",
@@ -16,7 +16,7 @@
     "@theia/terminal": "latest",
     "@theia/typescript": "latest",
     "@theia/workspace": "latest",
-    "sunix-che-theia-factory-frontend-extension": "^1.0.0"
+    "sunix-che-theia-factory-frontend-extension": "^1.0.1"
   },
   "devDependencies": {
     "@theia/cli": "latest"
