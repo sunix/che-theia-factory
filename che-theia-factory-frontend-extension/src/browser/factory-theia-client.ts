@@ -66,9 +66,7 @@ export class FactoryTheiaClient implements FrontendApplicationContribution {
                     const projectPath = projectsRoot + project.path;
 
                     this.messageService.info(`Cloning ... ${source.location} to ${projectPath}...`)
-                    console.info(`Cloning ... ${source.location} to ${projectPath}...`)
                     setTimeout(() => {
-                        console.info(`Cloning after 10 secs... ${source.location} to ${projectPath}...`)
                         this.git.clone(
                             source.location,
                             {
