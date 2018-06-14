@@ -40,8 +40,8 @@ export class FactoryTheiaClient implements FrontendApplicationContribution {
 
         var envVariables = await this.envVariablesServer.getVariables();
 
-        const cheApiExternalVar:  = this.getEnvVariable(envVariables, 'CHE_API_EXTERNAL');
-        const projectsRootEnvVar: EnvVariable = this.getEnvVariable(envVariables,'CHE_PROJECTS_ROOT');
+        var cheApiExternalVar = envVariables.find(function(envVariable) { return envVariable.name ===  'CHE_API_EXTERNAL' });
+        var projectsRootEnvVar = envVariables.find(function(envVariable) { return envVariable.name ===  'CHE_PROJECTS_ROOT' });
         if (projectsRootEnvVar && projectsRootEnvVar.value) {
             projectsRoot = projectsRootEnvVar.value;
         }
@@ -49,7 +49,6 @@ export class FactoryTheiaClient implements FrontendApplicationContribution {
             return;
         }
         var projectsRoot = "/projects";
-
 
         var factory = new Resources(FactoryTheiaClient.axiosInstance, String(cheApiExternalVar.value));
         var response: AxiosResponse<IFactory> = await factory.getById<IFactory>(factoryid);
@@ -64,8 +63,6 @@ export class FactoryTheiaClient implements FrontendApplicationContribution {
 
             this.messageService.info(`Cloning ... ${source.location} to ${projectPath}...`)
 
-            //TODO try without sleep
-            setTimeout(() => {
                 this.git.clone(
                     source.location,
                     {
@@ -83,7 +80,7 @@ export class FactoryTheiaClient implements FrontendApplicationContribution {
                     console.error(`Couldn't clone ${source.location} to ${projectPath}... ${error}`);
                     this.messageService.error(`Couldn't clone ${source.location} to ${projectPath}... ${error}`);
                 });
-            }, 10000);
+            
 
         });
     }
